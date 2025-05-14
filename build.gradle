@@ -2,6 +2,8 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.4.5'
     id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco'
+    id "checkstyle"
     id "pmd"
 }
 
@@ -68,4 +70,24 @@ test {
     }
 }
 
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = (new File('build/reports/jacoco'))
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.destination file("${buildDir}/reports/coverage")
+    }
+
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: [])
+        })
+    }
+}
 
