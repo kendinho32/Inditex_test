@@ -1,0 +1,93 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.4.5'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'jacoco'
+    id "checkstyle"
+    id "pmd"
+}
+
+group = 'com.inditex'
+version = '0.0.1-SNAPSHOT'
+description = "TEST TECNICO"
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // openapi
+    implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.8.5'
+
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.15.2"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:2.15.2"
+    implementation "com.fasterxml.jackson.module:jackson-module-parameter-names:2.15.2"
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.1'
+    implementation 'org.json:json:20231013'
+    implementation 'com.fasterxml.jackson.module:jackson-module-blackbird'
+
+    // Test dependencies for all projects
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'uk.org.webcompere:system-stubs-jupiter:2.0.1'
+
+    // datasources
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+
+    // H2
+    implementation 'io.r2dbc:r2dbc-h2'
+
+    // MySQL
+    implementation 'io.asyncer:r2dbc-mysql:1.1.0'
+}
+
+test {
+    useJUnitPlatform()
+
+    // Always run tests, even when nothing changed.
+    dependsOn 'cleanTest'
+
+    // Show test results.
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+    reportsDirectory = (new File('build/reports/jacoco'))
+}
+
+jacocoTestReport {
+    group = "Reporting"
+    reports {
+        xml.required.set(true)
+        csv.required.set(false)
+        html.destination file("${buildDir}/reports/coverage")
+    }
+
+    afterEvaluate {
+        classDirectories.from = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    exclude: [])
+        })
+    }
+}
+
