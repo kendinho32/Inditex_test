@@ -9,7 +9,7 @@ To show the Swagger UI, you need to run the application and access the following
 ![img_1.png](img/swagger.png)
 
 # BD H2
-BD H2
+
 user: sa
 password: sa
 
