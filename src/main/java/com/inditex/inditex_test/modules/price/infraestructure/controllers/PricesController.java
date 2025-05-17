@@ -35,6 +35,14 @@ public class PricesController {
             .map(ResponseEntity::ok);
   }
 
+  @Operation(
+          summary = "Method for find Price Apply",
+          description = "Returns a register.")
+  @ApiResponses(value = {
+          @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                  responseCode = "200",
+                  description = "Successful response with user information of price apply.")
+  })
   @GetMapping("/apply_date/{apply_date}/product_id/{product_id}/brand_id/{brand_id}/price")
   public Mono<ResponseEntity> findPriceApply(@PathVariable(name = "apply_date") LocalDateTime applyDate,
                                              @PathVariable(name = "product_id") Long productId,
