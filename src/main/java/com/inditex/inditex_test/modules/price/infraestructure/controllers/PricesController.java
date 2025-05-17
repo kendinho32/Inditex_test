@@ -21,8 +21,8 @@ public class PricesController {
   private final PriceApply priceApply;
 
   @Operation(
-          summary = "find all registers prices in BD",
-          description = "Returns a response with list of prices and status code.")
+          summary = "Find all prices registered in BD",
+          description = "Returns a list of prices and status code.")
   @ApiResponses(value = {
           @io.swagger.v3.oas.annotations.responses.ApiResponse(
                   responseCode = "200",
@@ -36,7 +36,7 @@ public class PricesController {
   }
 
   @Operation(
-          summary = "Method for find Price Apply",
+          summary = "find Price Apply",
           description = "Returns a register.")
   @ApiResponses(value = {
           @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -50,7 +50,6 @@ public class PricesController {
     return priceApply
             .findPriceApply(applyDate, productId, brandId)
             .map(ResponseEntity::ok);
-
   }
 
 }

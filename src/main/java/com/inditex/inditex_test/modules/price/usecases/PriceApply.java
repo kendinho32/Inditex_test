@@ -15,6 +15,7 @@ import java.util.Comparator;
 @Slf4j
 @AllArgsConstructor
 public class PriceApply {
+
   private final PriceRepository priceRepository;
 
   public Mono<PriceRecord> findPriceApply(LocalDateTime applyDate,
