@@ -54,6 +54,10 @@ dependencies {
 
     // MySQL
     implementation 'io.asyncer:r2dbc-mysql:1.1.0'
+
+    // Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
 }
 
 test {

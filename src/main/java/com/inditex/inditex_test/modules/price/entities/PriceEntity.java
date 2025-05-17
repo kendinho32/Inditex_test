@@ -60,12 +60,6 @@ public class PriceEntity implements Comparable {
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @JsonSerialize(using = LocalDateTimeSerializer.class)
   @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-  @Column("created_at")
-  private LocalDateTime createdAt;
-
-  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  @JsonSerialize(using = LocalDateTimeSerializer.class)
-  @JsonDeserialize(using = LocalDateTimeDeserializer.class)
   @Column("start_date")
   private LocalDateTime startDate;
 
