@@ -19,6 +19,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class IntegrationPricesApply {
 
+    public static final String ZARA = "ZARA";
     @Autowired
     private WebTestClient webTestClient;
 
@@ -35,7 +36,7 @@ public class IntegrationPricesApply {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody(PriceRecord.class)
                 .value(price -> {
-                    assertThat(price.name()).isEqualTo("ZARA");
+                    assertThat(price.name()).isEqualTo(ZARA);
                     assertThat(price.brandId()).isEqualTo(1L);
                     assertThat(price.productId()).isEqualTo(35455L);
                     assertThat(price.price()).isEqualTo(35.5);
@@ -54,7 +55,7 @@ public class IntegrationPricesApply {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody(PriceRecord.class)
                 .value(price -> {
-                    assertThat(price.name()).isEqualTo("ZARA");
+                    assertThat(price.name()).isEqualTo(ZARA);
                     assertThat(price.brandId()).isEqualTo(1L);
                     assertThat(price.priority()).isEqualTo(1L);
                     assertThat(price.productId()).isEqualTo(35455L);
@@ -74,7 +75,7 @@ public class IntegrationPricesApply {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody(PriceRecord.class)
                 .value(price -> {
-                    assertThat(price.name()).isEqualTo("ZARA");
+                    assertThat(price.name()).isEqualTo(ZARA);
                     assertThat(price.brandId()).isEqualTo(1L);
                     assertThat(price.priority()).isEqualTo(0L);
                     assertThat(price.productId()).isEqualTo(35455L);
@@ -94,7 +95,7 @@ public class IntegrationPricesApply {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody(PriceRecord.class)
                 .value(price -> {
-                    assertThat(price.name()).isEqualTo("ZARA");
+                    assertThat(price.name()).isEqualTo(ZARA);
                     assertThat(price.brandId()).isEqualTo(1L);
                     assertThat(price.priority()).isEqualTo(1L);
                     assertThat(price.productId()).isEqualTo(35455L);
@@ -114,7 +115,7 @@ public class IntegrationPricesApply {
                 .expectHeader().contentType(MediaType.APPLICATION_JSON)
                 .expectBody(PriceRecord.class)
                 .value(price -> {
-                    assertThat(price.name()).isEqualTo("ZARA");
+                    assertThat(price.name()).isEqualTo(ZARA);
                     assertThat(price.brandId()).isEqualTo(1L);
                     assertThat(price.priority()).isEqualTo(1L);
                     assertThat(price.productId()).isEqualTo(35455L);
