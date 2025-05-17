@@ -1,7 +1,7 @@
 package com.inditex.inditex_test.modules.price.infraestructure.controllers;
 
 import com.inditex.inditex_test.modules.price.usecases.FindPrices;
-
+import com.inditex.inditex_test.modules.price.usecases.PriceApply;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
