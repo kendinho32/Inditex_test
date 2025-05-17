@@ -54,6 +54,9 @@ dependencies {
 
     // MySQL
     implementation 'io.asyncer:r2dbc-mysql:1.1.0'
+
+    // Test
+    testImplementation 'io.projectreactor:reactor-test'
 }
 
 test {

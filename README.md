@@ -10,8 +10,7 @@ To show the Swagger UI, you need to run the application and access the following
 
 # BD H2
 
-user: sa
-password: sa
+credentials view config
 
 # Set up a Mysql database with Docker
 
