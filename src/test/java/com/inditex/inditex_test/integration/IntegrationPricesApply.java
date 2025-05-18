@@ -23,6 +23,8 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class IntegrationPricesApply {
 
     public static final String ZARA = "ZARA";
+    public static final long PRODUCT_ID = 35455L;
+    public static final long BRAND_ID = 1L;
     @Autowired
     private WebTestClient webTestClient;
 
@@ -42,8 +44,8 @@ public class IntegrationPricesApply {
                 .expectBody(PriceRecord.class)
                 .value(price -> {
                     assertThat(price.name()).isEqualTo(ZARA);
-                    assertThat(price.brandId()).isEqualTo(1L);
-                    assertThat(price.productId()).isEqualTo(35455L);
+                    assertThat(price.brandId()).isEqualTo(BRAND_ID);
+                    assertThat(price.productId()).isEqualTo(PRODUCT_ID);
                     assertThat(price.price()).isEqualTo(priceExpected);
                     assertThat(price.startDate()).isEqualTo(LocalDateTime.parse(startDateExpected));
                     assertThat(price.endDate()).isEqualTo(LocalDateTime.parse(endDateExpected));
@@ -52,11 +54,11 @@ public class IntegrationPricesApply {
 
     private static Stream<Arguments> dataTest() {
         return Stream.of(
-                Arguments.of("2020-06-14T10:00:00", "35455", "1", 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
-                Arguments.of("2020-06-14T16:00:00", "35455", "1", 25.45, "2020-06-14T15:00:00", "2020-06-14T18:30:00"),
-                Arguments.of("2020-06-14T21:00:00", "35455", "1", 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
-                Arguments.of("2020-06-15T10:00:00", "35455", "1", 30.5, "2020-06-15T00:00:00", "2020-06-15T11:00:00"),
-                Arguments.of("2020-06-16T21:00:00", "35455", "1", 38.95, "2020-06-15T16:00:00", "2020-12-31T23:59:59")
+                Arguments.of("2020-06-14T10:00:00", PRODUCT_ID, BRAND_ID, 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
+                Arguments.of("2020-06-14T16:00:00", PRODUCT_ID, BRAND_ID, 25.45, "2020-06-14T15:00:00", "2020-06-14T18:30:00"),
+                Arguments.of("2020-06-14T21:00:00", PRODUCT_ID, BRAND_ID, 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
+                Arguments.of("2020-06-15T10:00:00", PRODUCT_ID, BRAND_ID, 30.5, "2020-06-15T00:00:00", "2020-06-15T11:00:00"),
+                Arguments.of("2020-06-16T21:00:00", PRODUCT_ID, BRAND_ID, 38.95, "2020-06-15T16:00:00", "2020-12-31T23:59:59")
         );
     }
 }
