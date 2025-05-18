@@ -54,11 +54,11 @@ public class IntegrationPricesApply {
 
     private static Stream<Arguments> dataTest() {
         return Stream.of(
-                Arguments.of("2020-06-14T10:00:00", PRODUCT_ID, BRAND_ID, 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
-                Arguments.of("2020-06-14T16:00:00", PRODUCT_ID, BRAND_ID, 25.45, "2020-06-14T15:00:00", "2020-06-14T18:30:00"),
-                Arguments.of("2020-06-14T21:00:00", PRODUCT_ID, BRAND_ID, 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
-                Arguments.of("2020-06-15T10:00:00", PRODUCT_ID, BRAND_ID, 30.5, "2020-06-15T00:00:00", "2020-06-15T11:00:00"),
-                Arguments.of("2020-06-16T21:00:00", PRODUCT_ID, BRAND_ID, 38.95, "2020-06-15T16:00:00", "2020-12-31T23:59:59")
+                Arguments.of("2020-06-14T10:00:00", String.valueOf(PRODUCT_ID), String.valueOf(BRAND_ID), 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
+                Arguments.of("2020-06-14T16:00:00", String.valueOf(PRODUCT_ID), String.valueOf(BRAND_ID), 25.45, "2020-06-14T15:00:00", "2020-06-14T18:30:00"),
+                Arguments.of("2020-06-14T21:00:00", String.valueOf(PRODUCT_ID), String.valueOf(BRAND_ID), 35.5, "2020-06-14T00:00:00", "2020-12-31T23:59:59"),
+                Arguments.of("2020-06-15T10:00:00", String.valueOf(PRODUCT_ID), String.valueOf(BRAND_ID), 30.5, "2020-06-15T00:00:00", "2020-06-15T11:00:00"),
+                Arguments.of("2020-06-16T21:00:00", String.valueOf(PRODUCT_ID), String.valueOf(BRAND_ID), 38.95, "2020-06-15T16:00:00", "2020-12-31T23:59:59")
         );
     }
 }
