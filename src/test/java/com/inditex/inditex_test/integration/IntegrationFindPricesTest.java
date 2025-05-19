@@ -12,7 +12,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class IntegrationFindPrices {
+public class IntegrationFindPricesTest {
 
     @Autowired
     private WebTestClient webTestClient;
