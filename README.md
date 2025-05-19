@@ -23,6 +23,29 @@ To access the Swagger UI:
 
 ---
 
+## Report Jacoco
+
+To access the Report jacoco:
+
+1. Run all test.
+2. add :cleanTest :test :jacocoTestReport
+3. directory: Inditex_test/build/reports/coverage/index.html
+
+![Report](img/reportJacoco.png)
+
+---
+
+## Report PMD
+
+To access the Report pmd:
+
+1. Run task gradle: gradle build
+2. directory: Inditex_test/build/reports/pmd/test.html
+
+![Report](img/reportPMD.png)
+
+---
+
 ## H2 Database
 
 The application includes an H2 in-memory database for development purposes.
