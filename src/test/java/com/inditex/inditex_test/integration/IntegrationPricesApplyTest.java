@@ -20,11 +20,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class IntegrationPricesApply {
+public class IntegrationPricesApplyTest {
 
     public static final String ZARA = "ZARA";
     public static final long PRODUCT_ID = 35455L;
     public static final long BRAND_ID = 1L;
+
+    private static final String URI_TEMPLATE = "/apply_date/%s/product_id/%s/brand_id/%s/price";
+
     @Autowired
     private WebTestClient webTestClient;
 
@@ -36,7 +39,7 @@ public class IntegrationPricesApply {
     void pricesApply_casesParametrized(String date, String productId, String brandId, Double priceExpected,
                                        String startDateExpected, String endDateExpected) {
         webTestClient.get()
-                .uri("/apply_date/"+ date +"/product_id/"+ productId +"/brand_id/"+ brandId +"/price")
+                .uri(String.format(URI_TEMPLATE, date, productId, brandId))
                 .exchange()
                 .expectStatus()
                 .isOk()

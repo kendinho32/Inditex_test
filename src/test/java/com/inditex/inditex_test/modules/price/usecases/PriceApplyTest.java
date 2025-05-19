@@ -86,6 +86,7 @@ class PriceApplyTest {
     price1.setCurr("EUR");
     price1.setStartDate(dateTime.minusDays(2));
     price1.setEndDate(dateTime.plusDays(2));
+
     PriceEntity price2 = new PriceEntity();
     price2.setId(1L);
     price2.setBrandId(1L);
